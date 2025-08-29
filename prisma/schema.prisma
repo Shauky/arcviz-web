@@ -1,0 +1,303 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User Management
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  avatar    String?
+  password  String?  // Added password field for authentication
+  role      UserRole @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Profile information
+  profile   UserProfile?
+  
+  // Company relationship
+  companyId String?
+  company   Company? @relation(fields: [companyId], references: [id])
+  
+  // Job applications
+  applications JobApplication[]
+  
+  // Created job postings (for recruiters)
+  jobPostings JobPosting[]
+  
+  // Lead interactions
+  leadInteractions LeadInteraction[]
+  
+  // Analytics events
+  analyticsEvents AnalyticsEvent[]
+
+  @@map("users")
+}
+
+model UserProfile {
+  id          String  @id @default(cuid())
+  userId      String  @unique
+  user        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  bio         String?
+  location    String?
+  website     String?
+  linkedin    String?
+  github      String?
+  skills      String[] // Array of skills
+  experience  String?  // Years of experience
+  salary      String?  // Expected salary range
+  availability String? // Available for work status
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("user_profiles")
+}
+
+// Company Management
+model Company {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  description String?
+  logo        String?
+  website     String?
+  industry    String?
+  size        String?  // e.g., "1-10", "11-50", "51-200"
+  location    String?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relationships
+  users       User[]
+  jobPostings JobPosting[]
+  leads       Lead[]
+
+  @@map("companies")
+}
+
+// Job Posting Management (Wantedly-style)
+model JobPosting {
+  id          String        @id @default(cuid())
+  title       String
+  slug        String        @unique
+  description String
+  requirements String?
+  benefits    String?
+  salary      String?
+  location    String?
+  type        JobType       @default(FULL_TIME)
+  status      JobStatus     @default(ACTIVE)
+  featured    Boolean       @default(false)
+  
+  // Media
+  images      String[]      // Array of image URLs
+  
+  // Company relationship
+  companyId   String
+  company     Company       @relation(fields: [companyId], references: [id])
+  
+  // Creator relationship
+  createdById String
+  createdBy   User          @relation(fields: [createdById], references: [id])
+  
+  // Applications
+  applications JobApplication[]
+  
+  // Lead generation
+  leads       Lead[]
+  
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@map("job_postings")
+}
+
+model JobApplication {
+  id          String            @id @default(cuid())
+  status      ApplicationStatus @default(PENDING)
+  coverLetter String?
+  resume      String?           // URL to resume file
+  
+  // Relationships
+  jobPostingId String
+  jobPosting   JobPosting @relation(fields: [jobPostingId], references: [id])
+  
+  userId      String
+  user        User       @relation(fields: [userId], references: [id])
+  
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@unique([jobPostingId, userId])
+  @@map("job_applications")
+}
+
+// Lead Management
+model Lead {
+  id          String     @id @default(cuid())
+  email       String
+  name        String?
+  phone       String?
+  source      LeadSource @default(WEBSITE)
+  status      LeadStatus @default(NEW)
+  score       Int        @default(0) // Lead scoring
+  
+  // Additional data
+  metadata    Json?      // Flexible JSON field for additional lead data
+  notes       String?
+  
+  // Relationships
+  companyId   String?
+  company     Company?   @relation(fields: [companyId], references: [id])
+  
+  jobPostingId String?
+  jobPosting   JobPosting? @relation(fields: [jobPostingId], references: [id])
+  
+  // Interactions
+  interactions LeadInteraction[]
+  
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@map("leads")
+}
+
+model LeadInteraction {
+  id        String          @id @default(cuid())
+  type      InteractionType
+  content   String?
+  metadata  Json?           // Additional interaction data
+  
+  // Relationships
+  leadId    String
+  lead      Lead   @relation(fields: [leadId], references: [id])
+  
+  userId    String?
+  user      User?  @relation(fields: [userId], references: [id])
+  
+  createdAt DateTime @default(now())
+
+  @@map("lead_interactions")
+}
+
+// WordPress Content Integration
+model WordPressPost {
+  id          String   @id @default(cuid())
+  wpId        Int      @unique // WordPress post ID
+  title       String
+  slug        String   @unique
+  content     String
+  excerpt     String?
+  status      String   @default("publish")
+  type        String   @default("post")
+  
+  // SEO
+  metaTitle   String?
+  metaDescription String?
+  
+  // Media
+  featuredImage String?
+  
+  // Categories and tags
+  categories  String[]
+  tags        String[]
+  
+  // WordPress data
+  wpCreatedAt DateTime
+  wpUpdatedAt DateTime
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("wordpress_posts")
+}
+
+// Analytics and Tracking
+model AnalyticsEvent {
+  id         String   @id @default(cuid())
+  event      String   // Event name (page_view, job_click, application_start, etc.)
+  properties Json?    // Event properties
+  
+  // User tracking
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id])
+  
+  // Session tracking
+  sessionId  String?
+  ipAddress  String?
+  userAgent  String?
+  
+  createdAt  DateTime @default(now())
+
+  @@map("analytics_events")
+}
+
+// Enums
+enum UserRole {
+  USER
+  RECRUITER
+  ADMIN
+}
+
+enum JobType {
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+  INTERNSHIP
+  FREELANCE
+}
+
+enum JobStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+  CLOSED
+}
+
+enum ApplicationStatus {
+  PENDING
+  REVIEWING
+  INTERVIEW
+  ACCEPTED
+  REJECTED
+}
+
+enum LeadSource {
+  WEBSITE
+  SOCIAL_MEDIA
+  EMAIL
+  REFERRAL
+  ADVERTISEMENT
+  DIRECT
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  PROPOSAL
+  NEGOTIATION
+  CLOSED_WON
+  CLOSED_LOST
+}
+
+enum InteractionType {
+  EMAIL
+  PHONE
+  MEETING
+  NOTE
+  TASK
+  FOLLOW_UP
+}
