@@ -4,80 +4,53 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color tokens to match recruitment platform design brief */
-  --background: oklch(1 0 0); /* #ffffff */
-  --foreground: oklch(0.35 0.01 258); /* #4b5563 */
-  --card: oklch(0.98 0 0); /* #f9fafb */
-  --card-foreground: oklch(0.35 0.01 258); /* #4b5563 */
-  --popover: oklch(1 0 0); /* #ffffff */
-  --popover-foreground: oklch(0.35 0.01 258); /* #4b5563 */
-  --primary: oklch(0.55 0.15 200); /* #0891b2 - cyan-600 */
-  --primary-foreground: oklch(1 0 0); /* #ffffff */
-  --secondary: oklch(0.65 0.18 35); /* #f97316 - orange */
-  --secondary-foreground: oklch(1 0 0); /* #ffffff */
-  --muted: oklch(0.98 0 0); /* #f9fafb */
-  --muted-foreground: oklch(0.35 0.01 258); /* #4b5563 */
-  --accent: oklch(0.65 0.18 35); /* #f97316 - orange accent */
-  --accent-foreground: oklch(1 0 0); /* #ffffff */
-  --destructive: oklch(0.55 0.22 25); /* #dc2626 - red */
-  --destructive-foreground: oklch(1 0 0); /* #ffffff */
-  --border: oklch(0.92 0 0); /* #e5e7eb */
-  --input: oklch(0.98 0 0); /* #f9fafb */
-  --ring: oklch(0.55 0.15 200 / 0.5); /* primary with opacity */
-  --chart-1: oklch(0.35 0.01 258); /* #4b5563 */
-  --chart-2: oklch(0.65 0.18 35); /* #f97316 */
-  --chart-3: oklch(0.55 0.15 200); /* #0891b2 */
-  --chart-4: oklch(0.92 0 0); /* #e5e7eb */
-  --chart-5: oklch(0.98 0 0); /* #f9fafb */
+  --background: 210 40% 98%;
+  --foreground: 210 40% 3.9%;
+  --card: 210 40% 98%;
+  --card-foreground: 210 40% 3.9%;
+  --popover: 210 40% 98%;
+  --popover-foreground: 210 40% 3.9%;
+  --primary: 210 40% 9.8%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 210 40% 9.8%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 210 40% 45.1%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 210 40% 9.8%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 210 40% 94.9%;
+  --input: 210 40% 94.9%;
+  --ring: 210 40% 3.9%;
   --radius: 0.5rem;
-  --sidebar: oklch(1 0 0); /* #ffffff */
-  --sidebar-foreground: oklch(0.35 0.01 258); /* #4b5563 */
-  --sidebar-primary: oklch(0.98 0 0); /* #f9fafb */
-  --sidebar-primary-foreground: oklch(0.35 0.01 258); /* #4b5563 */
-  --sidebar-accent: oklch(0.65 0.18 35); /* #f97316 */
-  --sidebar-accent-foreground: oklch(1 0 0); /* #ffffff */
-  --sidebar-border: oklch(0.92 0 0); /* #e5e7eb */
-  --sidebar-ring: oklch(0.55 0.15 200 / 0.5); /* primary with opacity */
 }
 
 .dark {
-  --background: oklch(0.1 0 0);
-  --foreground: oklch(0.95 0 0);
-  --card: oklch(0.15 0 0);
-  --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.15 0 0);
-  --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.6 0.15 200);
-  --primary-foreground: oklch(0.1 0 0);
-  --secondary: oklch(0.7 0.18 35);
-  --secondary-foreground: oklch(0.1 0 0);
-  --muted: oklch(0.2 0 0);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.7 0.18 35);
-  --accent-foreground: oklch(0.1 0 0);
-  --destructive: oklch(0.6 0.22 25);
-  --destructive-foreground: oklch(0.95 0 0);
-  --border: oklch(0.25 0 0);
-  --input: oklch(0.2 0 0);
-  --ring: oklch(0.6 0.15 200 / 0.5);
-  --chart-1: oklch(0.65 0 0);
-  --chart-2: oklch(0.7 0.18 35);
-  --chart-3: oklch(0.6 0.15 200);
-  --chart-4: oklch(0.25 0 0);
-  --chart-5: oklch(0.2 0 0);
-  --sidebar: oklch(0.1 0 0);
-  --sidebar-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.2 0 0);
-  --sidebar-primary-foreground: oklch(0.95 0 0);
-  --sidebar-accent: oklch(0.7 0.18 35);
-  --sidebar-accent-foreground: oklch(0.1 0 0);
-  --sidebar-border: oklch(0.25 0 0);
-  --sidebar-ring: oklch(0.6 0.15 200 / 0.5);
+  --background: 210 40% 3.9%;
+  --foreground: 210 40% 98%;
+  --card: 210 40% 3.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 210 40% 3.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 210 40% 9.8%;
+  --secondary: 210 40% 14.9%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 210 40% 14.9%;
+  --muted-foreground: 210 40% 64.9%;
+  --accent: 210 40% 14.9%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 210 40% 14.9%;
+  --input: 210 40% 14.9%;
+  --ring: 210 40% 82.9%;
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-source-code-pro);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

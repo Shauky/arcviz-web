@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -19,7 +18,6 @@ const ONBOARDING_STEPS = [
 ]
 
 export default function OnboardingPage() {
-  const { data: session } = useSession()
   const router = useRouter()
   const [currentStep, setCurrentStep] = useState(1)
   const [formData, setFormData] = useState({

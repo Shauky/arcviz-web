@@ -1,41 +1,15 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Header } from "@/components/layout/header"
 import { JobCard } from "@/components/jobs/job-card"
 import { JobFilters } from "@/components/jobs/job-filters"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Loader2 } from "lucide-react"
-
-interface Job {
-  id: string
-  title: string
-  slug: string
-  description: string
-  requirements: string | null
-  location: string | null
-  type: string
-  status: string
-  featured: boolean
-  images: string[]
-  createdAt: string
-  company: {
-    id: string
-    name: string
-    logo: string | null
-  }
-  createdBy: {
-    id: string
-    name: string | null
-  }
-  _count: {
-    applications: number
-  }
-}
+import type { JobPostingWithCompany } from "@/lib/types"
 
 export default function JobsPage() {
-  const [jobs, setJobs] = useState<Job[]>([])
+  const [jobs, setJobs] = useState<JobPostingWithCompany[]>([])
   const [loading, setLoading] = useState(true)
   const [totalJobs, setTotalJobs] = useState(0)
   const [page, setPage] = useState(1)
@@ -100,7 +74,6 @@ export default function JobsPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
 
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">

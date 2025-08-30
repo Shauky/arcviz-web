@@ -1,5 +1,4 @@
 import { prisma } from "@/lib/prisma"
-import { Header } from "@/components/layout/header"
 import { JobCard } from "@/components/jobs/job-card"
 import { ContactForm } from "@/components/forms/contact-form"
 import { Button } from "@/components/ui/button"
@@ -37,7 +36,6 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
 
       {/* Hero Section */}
       <section className="relative py-20 px-4 bg-gradient-to-br from-primary/5 via-background to-accent/5">
