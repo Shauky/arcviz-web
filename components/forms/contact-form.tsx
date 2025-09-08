@@ -76,8 +76,8 @@ export function ContactForm({
             <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Mail className="w-6 h-6 text-green-600" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Message Sent!</h3>
-            <p className="text-gray-600">Thank you for your interest. We'll get back to you soon.</p>
+            <h3 className="text-sm font-semibold text-gray-900 mb-2">Message Sent!</h3>
+            <p className="text-gray-600 text-sm">Thank you for your interest. We'll get back to you soon.</p>
           </div>
         </CardContent>
       </Card>
@@ -87,7 +87,7 @@ export function ContactForm({
   return (
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
-        <CardTitle className="text-xl font-semibold text-gray-900">{title}</CardTitle>
+        <CardTitle className="text-sm font-semibold text-gray-900">{title}</CardTitle>
         <CardDescription className="text-gray-600">{description}</CardDescription>
       </CardHeader>
       <CardContent>
@@ -104,7 +104,7 @@ export function ContactForm({
                 placeholder="Your full name"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="pl-10"
+                className="pl-10 text-sm"
                 required
               />
             </div>
@@ -122,7 +122,7 @@ export function ContactForm({
                 placeholder="your.email@example.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="pl-10"
+                className="pl-10 text-sm"
                 required
               />
             </div>
@@ -137,10 +137,10 @@ export function ContactForm({
               <Input
                 id="phone"
                 type="tel"
-                placeholder="+1 (555) 123-4567"
+                placeholder="+(960) 70-01234"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="pl-10"
+                className="pl-10 text-sm"
               />
             </div>
           </div>
@@ -154,10 +154,10 @@ export function ContactForm({
               <Input
                 id="company"
                 type="text"
-                placeholder="Your company name"
+                placeholder="Your company name, freelance?"
                 value={formData.company}
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                className="pl-10"
+                className="pl-10 text-sm"
               />
             </div>
           </div>
@@ -168,15 +168,16 @@ export function ContactForm({
             </Label>
             <Textarea
               id="message"
-              placeholder="Tell us about your project or how we can help..."
+              placeholder="Tell us more about your goals, project needs or how we can help..."
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               rows={4}
               required
+              className="pl-10 text-sm"
             />
           </div>
 
-          <Button type="submit" className="w-full bg-cyan-600 hover:bg-cyan-700 text-white" disabled={isSubmitting}>
+          <Button type="submit" className="w-full bg-cyan-600 hover:bg-cyan-700 text-white text-sm" disabled={isSubmitting}>
             {isSubmitting ? "Sending..." : "Send Message"}
           </Button>
         </form>

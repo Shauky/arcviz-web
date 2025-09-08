@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Badge } from "@/components/ui/badge"
 import { Search, Bell, MessageCircle, User, Settings, LogOut, Briefcase, FileText } from "lucide-react"
+import Image from "next/image"
 
 export function Header() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -28,16 +29,14 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo and Navigation */}
           <div className="flex items-center space-x-8">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-                <Briefcase className="h-5 w-5 text-primary-foreground" />
-              </div>
-              <span className="text-xl font-bold">social.mv</span>
+            <Image src='arcvizsmall.png' alt='arcvizsmall' width={45} height={120} />    
+            <Link href="/" className="flex items-center space-x-2">   
+          <span className="text-xl font-bold">arcviz</span>
             </Link>
 
             <nav className="hidden md:flex items-center space-x-6">
@@ -45,10 +44,10 @@ export function Header() {
                 Jobs
               </Link>
               <Link href="/companies" className="text-sm font-medium hover:text-primary transition-colors">
-                Companies
+                Company
               </Link>
               <Link href="/blog" className="text-sm font-medium hover:text-primary transition-colors">
-                Stories
+                Story
               </Link>
             </nav>
           </div>
@@ -65,7 +64,12 @@ export function Header() {
                 className="pl-10 bg-muted/50 border-0 focus:bg-background"
               />
             </form>
-          </div>
+           </div>
+           <div className="flex items-center space-x-8">
+            <Link href="/blog" className="text-sm font-medium hover:text-primary transition-colors">
+                Projects
+              </Link>
+              </div>
 
           {/* User Actions */}
           <div className="flex items-center space-x-4">
@@ -73,6 +77,7 @@ export function Header() {
               <Button variant="ghost" asChild>
                 <Link href="/auth/signin">Sign In</Link>
               </Button>
+
               <Button asChild>
                 <Link href="/onboarding">Get Started</Link>
               </Button>
