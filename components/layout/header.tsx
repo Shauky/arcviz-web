@@ -40,8 +40,11 @@ export function Header() {
             </Link>
 
             <nav className="hidden md:flex items-center space-x-6">
-              <Link href="/jobs" className="text-sm font-medium hover:text-primary transition-colors">
+              {/* <Link href="/jobs" className="text-sm font-medium hover:text-primary transition-colors">
                 Jobs
+              </Link> */}
+              <Link href="/blog" className="text-sm font-medium hover:text-primary transition-colors">
+                Projects
               </Link>
               <Link href="/companies" className="text-sm font-medium hover:text-primary transition-colors">
                 Company
@@ -67,7 +70,7 @@ export function Header() {
            </div>
            <div className="flex items-center space-x-8">
             <Link href="/blog" className="text-sm font-medium hover:text-primary transition-colors">
-                Projects
+                Investor Relations
               </Link>
               </div>
 

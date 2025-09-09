@@ -21,15 +21,16 @@ export default async function HomePage() {
             </div>
             <Badge className="mb-4">
              <TrendingUp className="mr-2 h-4 w-4" />
-                 Our impressions increased by 10 new projects reaching 1000 new customers and vendors, since your last visit
+                 Our impressions increased by 10 new projects <br></br>
+                 reaching 1000 new customers and vendors, since your last visit
             </Badge>
 
             <h1 className="text-4xl md:text-2xl font-bold text-balance">
-             We are a dedicated team of Interior designers, 3D artisans and architects <span className="text-primary">. </span> Building the future today.
+                We are a dedicated team of Interior designers, 3D artisans and architects <span className="text-primary">. </span> Building the future today.
             </h1>
 
             <p className="text-sm text-muted-foreground text-pretty max-w-2xl mx-auto">
-              Connect with an agency that shares your values and discover how your project can make a real impact. 
+              Connect with an agency that shares your values and discover how your home design project can make a real impact. 
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
