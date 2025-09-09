@@ -10,33 +10,6 @@ import Image from  "next/image"
 import { CompanyHeader } from "@/components/layout/company-header"
 
 export default async function HomePage() {
-  // Fetch featured jobs and stats
-  // const [featuredJobs, companies] = await Promise.all([
-  //   prisma.jobPosting.findMany({
-  //     where: {
-  //       status: "ACTIVE",
-  //       featured: true,
-  //     },
-  //     include: {
-  //       company: true,
-  //       // createdBy: true,
-  //       _count: {
-  //         select: { applications: true },
-  //       },
-  //     },
-  //     orderBy: { createdAt: "desc" },
-  //     take: 6,
-  //   }),
-  //   prisma.jobPosting.aggregate({
-  //     where: { status: "ACTIVE" },
-  //     _count: true,
-  //   }),
-  //   prisma.company.count(),
-  // ])
-
-  //total job application count, this can be changes into a component later on
-  // const totalApplications = await prisma.jobApplication.count()
-
   return (
     <div className="min-h-screen bg-background w-2/3 ml-50">
       {/* Hero Section */}

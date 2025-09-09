@@ -16,8 +16,8 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "social.mv",
-  description: "Created with v0",
+  title: "arcviz.com",
+  description: "Created by devs for Designers",
   generator: "v0.app",
 }
 
