@@ -40,8 +40,8 @@ export function Header() {
             </Link>
 
             <nav className="hidden md:flex items-center space-x-6">
-              <Link href="/jobs" className="text-sm font-medium hover:text-primary transition-colors">
-                Jobs
+              <Link href="/projects" className="text-sm font-medium hover:text-primary transition-colors">
+                Projects
               </Link>
               <Link href="/companies" className="text-sm font-medium hover:text-primary transition-colors">
                 Company
@@ -66,8 +66,8 @@ export function Header() {
             </form>
            </div>
            <div className="flex items-center space-x-8">
-            <Link href="/blog" className="text-sm font-medium hover:text-primary transition-colors">
-                Projects
+            <Link href="/investor" className="text-sm font-medium hover:text-primary transition-colors">
+                Investor Relations
               </Link>
               </div>
 
@@ -79,7 +79,7 @@ export function Header() {
               </Button>
 
               <Button asChild>
-                <Link href="/onboarding">Get Started</Link>
+                <Link href="/onboarding">Dashboard</Link>
               </Button>
             </div>
           </div>

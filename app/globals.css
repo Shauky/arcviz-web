@@ -3,6 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
 :root {
   --background: 210 40% 98%;
   --foreground: 210 40% 3.9%;
@@ -46,6 +47,15 @@
   --border: 210 40% 14.9%;
   --input: 210 40% 14.9%;
   --ring: 210 40% 82.9%;
+}
+
+.animate-scroll {
+  display: flex;
+  width: max-content; /* Ensures container fits all cards */
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused; /* Optional: Pause animation on hover */
 }
 
 @theme inline {
