@@ -1,30 +1,40 @@
-# Lead generation website
+This is a [Next.js](https://nextjs.org/) project with [Threepipe](https://threepipe.org) 3D viewer component bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+## Getting Started
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/shaukys-projects/v0-lead-generation-website)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/Ivv3KL92nr5)
+First, run the development server:
 
-## Overview
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun run dev
+```
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Deployment
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Your project is live at:
+A sample 3D Viewer resides in `app/components/ThreeViewerComponent.tsx` file, and imported and used in `app/page.tsx`.
 
-**[https://vercel.com/shaukys-projects/v0-lead-generation-website](https://vercel.com/shaukys-projects/v0-lead-generation-website)**
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Build your app
+## Learn More
 
-Continue building your app on:
+To learn more about Threepipe and Next.js, take a look at the following resources:
 
-**[https://v0.app/chat/projects/Ivv3KL92nr5](https://v0.app/chat/projects/Ivv3KL92nr5)**
+- [Threepipe Documentation](https://threepipe.org/) - get started with 3D graphics on the web.
+- [WebGi (post-processing)](https://webgi.dev/) - learn about post-processing plugins in threepipe.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## How It Works
+You can check out the [Threepipe](https://github.com/repalash/threepipe/) and [Next.js](https://github.com/vercel/next.js/) GitHub repositories - your feedback and contributions are welcome by both!
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

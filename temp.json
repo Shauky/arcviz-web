@@ -1,0 +1,54 @@
+{
+  "name": "@threepipe/webgi-plugins",
+  "version": "0.5.9",
+  "description": "WebGi - Realistic Rendering Plugins for ThreePipe.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "sources": "src/index.ts",
+  "browser": "dist/index.js",
+  "type": "module",
+  "files": ["LICENSE", "NOTICE", "README.md", "dist", "tsconfig.json"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./dist/": {
+      "import": "./dist/",
+      "require": "./dist/"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/repalash/threepipe-webgi.git"
+  },
+  "keywords": [
+    "3d",
+    "three.js",
+    "typescript",
+    "javascipt",
+    "browser",
+    "esm",
+    "rendering",
+    "viewer",
+    "webgl",
+    "webgi",
+    "canvas"
+  ],
+  "author": "repalash <palash@shaders.app> (https://repalash.com)",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/repalash/threepipe/issues"
+  },
+  "homepage": "https://webgi.dev/",
+  "dependencies": {
+    "threepipe": "^0.2.0"
+  },
+  "peerDependencies": {
+    "threepipe": ">=0.2.0"
+  },
+  "browserslist": ["defaults"],
+  "sideEffects": false
+}
