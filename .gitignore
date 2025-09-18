@@ -1,6 +1,5 @@
 node_modules
-frontend-white/node_modules
-.next
+frontend-white
 .saved
 *.env
 *.env.local

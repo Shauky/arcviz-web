@@ -1,6 +1,8 @@
+'use client';
 import Image from 'next/image';
 import { Button } from "@/components/ui/button"
 import dynamic from 'next/dynamic';
+import Spline from '@splinetool/react-spline/next';
 
 const ThreeViewer = dynamic(
   async () => import('@/components/ThreeViewerComponent'),
@@ -10,10 +12,8 @@ const ThreeViewer = dynamic(
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-20 overflow-hidden">
-      
-      <ThreeViewer
-        src={'https://asset-samples.threepipe.org/demos/classic-watch.glb'}
-      />
+   <iframe src='https://my.spline.design/retrofuturismbganimation-EqmLiwtdN9Ap8k38LUZYnJs8/' frameBorder='0' width='300%' height='600px'></iframe>
+
 
       <div className="flex flex-row max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <div className="fixed z-0 p-10 space-x-1 gap-8 top-0 -mt-20 bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
@@ -48,3 +48,5 @@ export default function Home() {
     </main>
   );
 }
+
+
