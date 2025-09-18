@@ -95,6 +95,7 @@ function ParallaxImages({ children}: ParallaxProps) {
         useEffect(()=>{
           let controls;
           let finalPosition = -innerWidth / 2 - 8;
+          
 
           controls = animate(x, [0, finalPosition], {
             ease: 'linear',
@@ -142,10 +143,11 @@ export default function HomePage() {
        
       {/* Corporate Section */}
     <section className="w-full relative bg-white from-primary/5 via-background to-accent/5 p-20">
-      <div className="sticky top-0 p-20 items-center ml-90 text-xl font-semibold bg-white"> We've got you Covered </div>
+
         <div className="container mx-auto max-w-6xl text-center">
           <div className="max-w-3xl mx-auto space-y-6">
             <div className="align-center w-full p-5">
+              <div className="sticky top-0 p-20 items-center text-xl font-semibold bg-white"> We've got you Covered </div>
             <Image
               src="/avatargroup.png"
               alt="avatargroup"
