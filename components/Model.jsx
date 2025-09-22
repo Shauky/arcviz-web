@@ -2,7 +2,7 @@ import { useGLTF } from '@react-three/drei';
 import { forwardRef } from 'react';
 
 const Model = forwardRef((props, ref) => {
-  const { nodes, materials } = useGLTF('/flower.glb');
+  const { nodes, materials } = useGLTF('flower.glb');
 
   return (
     <group {...props} dispose={null}>
