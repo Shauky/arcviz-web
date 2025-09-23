@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
-import { Canvas } from '@react-three/fiber/native'
-import { useGLTF } from '@react-three/drei/native'
+import { Canvas } from '@react-three/fiber'
+import { useGLTF } from '@react-three/drei'
 import modelPath from '@/public/flower.glb'
 
 function Model(props) {
@@ -10,9 +10,9 @@ function Model(props) {
 
 export default function App() {
   return (
-    <Canvas>
+    <Canvas camera={{ position: [1, 0.001, 0.001] }}>
       <ambientLight />
-      <Suspense>
+       <Suspense>
         <Model />
       </Suspense>
     </Canvas>
